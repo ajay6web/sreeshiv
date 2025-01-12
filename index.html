@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Alarms Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="clock-container">
+        <h1>Digital Clock with Multiple Alarms</h1>
+        
+        <!-- Current Time Display -->
+        <div class="clock" id="digitalClock">00:00:00</div>
+
+        <!-- Time Zone Selector -->
+        <select id="timeZoneSelector" onchange="updateTimeZone()">
+            <option value="local">Local Time</option>
+            <option value="UTC">UTC</option>
+            <option value="Asia/Kolkata">India (IST)</option> <!-- Added India -->
+            <option value="America/New_York">New York (EST)</option>
+            <option value="Asia/Tokyo">Tokyo (JST)</option>
+            <option value="Europe/London">London (GMT)</option>
+        </select>
+
+        <!-- Show Current Time in India (IST) -->
+        <h3>Current Time in India (IST)</h3>
+        <div class="clock" id="indiaTime">Loading...</div>
+
+        <!-- Multiple Alarm Section -->
+        <div class="alarm-section">
+            <input type="time" id="alarmTime">
+            <button onclick="setAlarm()">Set Alarm</button>
+        </div>
+
+        <!-- List of Alarms -->
+        <h3>Alarms List</h3>
+        <ul id="alarmsList"></ul>
+
+        <!-- Stop All Alarms Button -->
+        <button onclick="stopAllAlarms()" id="stopAlarmButton" style="display:none;">Stop All Alarms</button>
+    </div>
+
+    <!-- Alarm Sound -->
+    <audio id="alarmSound" src="alarm.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
